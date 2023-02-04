@@ -1,5 +1,4 @@
 Create java and layout file for flash screen
-****
 **SplashScreen.java** 
 use `MainActivity.java` code
 
@@ -41,15 +40,26 @@ use `MainActivity.java` code
 Change manifest file add following code
 ```
 <activity
-            android:name=".MainActivity">
-        </activity>
-        <activity android:name=".SplashScreen"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+    android:name=".MainActivity">
+</activity>
+<activity android:name=".SplashScreen"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+```
+
+Create intent in `SplashScreen.java`
+```
+new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent iHome = new Intent(SplashScreen.this,MainActivity.class);
+                startActivity(iHome);
+            }
+        },3000);
 ```
 
 
